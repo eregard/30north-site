@@ -1,0 +1,25 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;color:#1d2733;background:#fff;line-height:1.6;font-size:18px}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.preview-bar{background:#fff4c2;color:#5c4a00;font-size:14px;text-align:center;padding:8px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding-top:24px;padding-bottom:24px}
+.logo{font-weight:700;font-size:20px;letter-spacing:.02em;color:#0e3a5b}
+.hero{padding-top:72px;padding-bottom:72px}
+h1{font-size:48px;line-height:1.12;letter-spacing:-.02em;color:#0e2338;max-width:760px}
+.sub{font-size:22px;color:#4a5866;margin:20px 0 32px}
+h2{font-size:26px;color:#0e2338;margin-bottom:14px}
+h3{font-size:19px;color:#0e3a5b;margin-bottom:6px}
+.block{padding-top:44px;padding-bottom:44px;border-top:1px solid #e6eaee}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#f6f8fa;border-radius:12px;padding:22px}
+.card p{font-size:16px;color:#4a5866}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;padding-left:48px;position:relative;margin-bottom:14px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:#1f6fa8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.btn{display:inline-block;background:#1f6fa8;color:#fff;text-decoration:none;font-weight:600;padding:14px 26px;border-radius:8px}
+.btn.small{padding:9px 16px;font-size:15px}
+.cta{text-align:center;padding-top:64px;padding-bottom:72px;border-top:1px solid #e6eaee}
+.cta h2{margin-bottom:24px}
+.foot{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;font-size:14px;color:#6b7785;padding-top:24px;padding-bottom:32px;border-top:1px solid #e6eaee}
+.ph{background:#ffe680;color:#4d3d00;border-radius:4px;padding:1px 6px;font-size:.9em}
+@media (max-width:640px){body{font-size:17px}h1{font-size:34px}.sub{font-size:19px}.hero{padding-top:40px;padding-bottom:48px}.cards{grid-template-columns:1fr}.foot{flex-direction:column;gap:8px}}
