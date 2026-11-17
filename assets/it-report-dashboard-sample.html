@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLTWKJCWS1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WLTWKJCWS1');
+</script>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>IT Report Dashboard</title>
+<style>
+@page { size: letter; margin: 0.4in 0.5in; }
+:root{--ink:#1b2430;--mute:#5b6675;--line:#dfe3e8;--brand:#0b5cad;--brand2:#14a3a3;--ok:#1e9e5a;--warn:#d98a00;--bad:#c8372d;--gray:#8a94a3;--soft:#f5f7fa}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:"Inter","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;font-size:9pt;line-height:1.3}
+.page{max-width:7.5in;margin:0 auto;padding:18px 12px}
+@media print{.page{padding:0}}
+header{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:8px;border-bottom:3px solid var(--brand);position:relative}
+header:after{content:"";position:absolute;left:0;bottom:-3px;width:28%;height:3px;background:var(--brand2)}
+h1{font-size:18pt;margin:0;letter-spacing:-.3px}
+.sub{color:var(--mute);font-size:9.5pt;margin-top:2px}
+.sub b{color:var(--brand)}
+.asof{text-align:right;font-size:8.5pt;color:var(--mute)}
+.note{margin-top:4px;font-size:8pt;color:var(--mute);font-style:italic}
+.asof strong{display:block;color:var(--ink);font-size:10pt}
+h2{font-size:10pt;text-transform:uppercase;letter-spacing:.8px;color:var(--brand);margin:10px 0 5px;display:flex;align-items:center;gap:8px}
+h2:after{content:"";flex:1;height:1px;background:var(--line)}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:11px}
+.kpi{border:1px solid var(--line);border-radius:7px;padding:7px 9px;border-top:3px solid var(--brand)}
+.kpi .n{font-size:16pt;font-weight:700;line-height:1.1}
+.kpi .l{font-size:8pt;color:var(--mute)}
+.kpi.ok{border-top-color:var(--ok)} .kpi.warn{border-top-color:var(--warn)} .kpi.gray{border-top-color:var(--gray)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.card{border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:6px;padding:6px 10px;break-inside:avoid;page-break-inside:avoid;background:#fff}
+.card.ok{border-left-color:var(--ok)} .card.warn{border-left-color:var(--warn)} .card.bad{border-left-color:var(--bad)} .card.gray{border-left-color:var(--gray)}
+.card h3{margin:0 0 4px;font-size:10.5pt;display:flex;justify-content:space-between;align-items:center}
+.card .role{color:var(--mute);font-size:8.3pt;margin:-2px 0 5px}
+table.kv{width:100%;border-collapse:collapse;font-size:8.6pt}
+table.kv td{padding:1px 0;vertical-align:top;border-bottom:1px dotted #e6e9ed}
+table.kv tr:last-child td{border-bottom:none}
+table.kv td:first-child{color:var(--mute);width:36%;padding-right:6px}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:7.6pt;font-weight:600;padding:1px 7px;border-radius:10px;border:1px solid;white-space:nowrap}
+.pill:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.p-ok{color:var(--ok);border-color:#bfe5cf;background:#effaf3}
+.p-warn{color:#b87400;border-color:#f3dcaa;background:#fff8e9}
+.p-bad{color:var(--bad);border-color:#f0c4c0;background:#fdf1f0}
+.p-gray{color:#6b7584;border-color:#d8dde3;background:#f6f7f9}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.d-ok{background:var(--ok)} .d-warn{background:var(--warn)} .d-bad{background:var(--bad)} .d-gray{background:var(--gray)}
+.bots{border:1px solid var(--line);border-radius:7px;padding:9px 12px;border-top:3px solid var(--brand2);break-inside:avoid}
+.bots ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
+.bots li{padding-left:16px;position:relative;font-size:8.8pt}
+.bots li:before{content:"✓";position:absolute;left:0;color:var(--brand2);font-weight:700}
+.bots .foot{margin-top:6px;font-size:8.2pt;color:var(--mute)}
+table.post{width:100%;border-collapse:collapse;font-size:8.7pt}
+table.post th{text-align:left;font-size:7.8pt;text-transform:uppercase;letter-spacing:.5px;color:var(--mute);border-bottom:1.5px solid var(--line);padding:3px 4px}
+table.post td{padding:2px 4px;border-bottom:1px solid #eef0f3}
+.bar{height:6px;background:#edf0f3;border-radius:3px;overflow:hidden;margin-top:2px}
+.bar i{display:block;height:100%;background:var(--brand)}
+.stale{color:#b87400;font-size:7.8pt;font-weight:600}
+.actions .item{display:flex;gap:8px;padding:5px 0;border-bottom:1px solid #eef0f3;break-inside:avoid}
+.actions .item:last-child{border-bottom:none}
+.tag{flex:0 0 52px;text-align:center;font-size:7.4pt;font-weight:700;border-radius:4px;padding:2px 0;height:fit-content;color:#fff}
+.t-now{background:var(--ok)} .t-watch{background:var(--warn)} .t-info{background:var(--gray)}
+.small{font-size:8pt;color:var(--mute)}
+footer{margin-top:10px;padding-top:6px;border-top:1px solid var(--line);font-size:7.6pt;color:var(--mute);display:flex;justify-content:space-between}
+.pb{break-before:page;page-break-before:always}
+.mono{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:8.2pt}
+</style></head>
+<body><div class="page">
+
+<header>
+  <div>
+    <h1>IT Report Dashboard</h1>
+    <div class="sub"><b>Managed autonomously by AI agents</b> · Endpoints, security &amp; network</div>
+    <div class="note">Sample report from a live home-office deployment; identifying details removed.</div>
+  </div>
+  <div class="asof"><strong>Tue Nov 17, 2026</strong>Morning scan · read-only</div>
+</header>
+
+<div class="kpis">
+  <div class="kpi ok"><div class="n">2 / 2</div><div class="l">Managed laptops live &amp; inventoried</div></div>
+  <div class="kpi ok"><div class="n">0</div><div class="l">Act-now findings</div></div>
+  <div class="kpi ok"><div class="n">100%</div><div class="l">Disk encryption + firewall + system integrity on</div></div>
+  <div class="kpi warn"><div class="n">4</div><div class="l">Watch items (patches, backup, memory)</div></div>
+  <div class="kpi ok"><div class="n">2 / 2</div><div class="l">Network devices reachable (primary site)</div></div>
+</div>
+
+<h2>What the bots did this morning</h2>
+<div class="bots">
+  <ul>
+    <li>Ran a live hardware &amp; software inventory on both laptops (model, OS, firmware, RAM, storage, battery, apps)</li>
+    <li>Checked disk health: SMART status, hardware AES encryption, free space</li>
+    <li>Verified security controls: disk encryption, firewall, system integrity protection, remote-access services</li>
+    <li>Queried the OS and app stores for pending patches; compared app versions across devices</li>
+    <li>Mapped the private network: peer online/offline state, last-seen times, round-trip latency</li>
+    <li>Probed the edge router and mesh Wi-Fi by ICMP (latency, packet loss)</li>
+    <li>Fell back automatically when one collection path was refused, collecting live through a second path instead</li>
+    <li>Triaged results into Act-now / Watch / Info and wrote recommended next actions</li>
+  </ul>
+  <div class="foot">74 reports generated since Sep 2026 · every check is read-only: no settings changed · no human involved in collection</div>
+</div>
+
+<h2>Managed endpoints</h2>
+<div class="grid2">
+  <div class="card ok">
+    <h3>Laptop 1 <span class="pill p-ok">Live</span></h3>
+    <div class="role">Primary / travel laptop · collected at scan</div>
+    <table class="kv">
+      <tr><td>Hardware</td><td>Apple laptop · Apple silicon · 24 GB RAM</td></tr>
+      <tr><td>OS</td><td>macOS · last OS update about 3 months ago</td></tr>
+      <tr><td>Storage</td><td>52% used · ample free space<div class="bar"><i style="width:52%"></i></div></td></tr>
+      <tr><td>Disk health</td><td><span class="dot d-ok"></span>SMART Verified · hardware encryption</td></tr>
+      <tr><td>Security</td><td><span class="dot d-ok"></span>Disk encryption On · Firewall On · System integrity enabled</td></tr>
+      <tr><td>Battery</td><td>100% · low cycle count · Good</td></tr>
+      <tr><td>Memory</td><td><span class="dot d-warn"></span>23 of 24 GB used · swap in use</td></tr>
+      <tr><td>Patches</td><td><span class="dot d-warn"></span>3 pending OS updates · 11 pending app updates</td></tr>
+      <tr><td>Private network</td><td><span class="dot d-ok"></span>Online · 29 ms (direct over LAN)</td></tr>
+    </table>
+  </div>
+  <div class="card ok">
+    <h3>Desktop 1 <span class="pill p-ok">Live</span></h3>
+    <div class="role">Always-on desktop / remote collector · collected at scan</div>
+    <table class="kv">
+      <tr><td>Hardware</td><td>Apple desktop · Apple silicon · 16 GB RAM</td></tr>
+      <tr><td>OS</td><td>macOS · last OS update about 3 weeks ago</td></tr>
+      <tr><td>Storage</td><td>28% used · ample free space<div class="bar"><i style="width:28%"></i></div></td></tr>
+      <tr><td>Disk health</td><td><span class="dot d-ok"></span>SMART Verified · hardware encryption</td></tr>
+      <tr><td>Security</td><td><span class="dot d-ok"></span>Disk encryption On · Firewall On · System integrity enabled</td></tr>
+      <tr><td>Remote access</td><td><span class="dot d-ok"></span>Remote management off · Screen sharing off</td></tr>
+      <tr><td>Memory</td><td>15 of 16 GB used · no swap</td></tr>
+      <tr><td>Patches</td><td><span class="dot d-warn"></span>1 pending OS update · 0 app updates · 20 outdated developer packages</td></tr>
+      <tr><td>Private network</td><td><span class="dot d-ok"></span>Running · hub for network probes</td></tr>
+    </table>
+  </div>
+</div>
+
+<h2>Security posture</h2>
+<table class="post">
+  <tr><th>Control</th><th>Laptop 1</th><th>Desktop 1</th><th>Notes</th></tr>
+  <tr><td>Disk encryption</td><td><span class="pill p-ok">On</span></td><td><span class="pill p-ok">On</span></td><td class="small">Hardware encryption on both SSDs</td></tr>
+  <tr><td>Application firewall</td><td><span class="pill p-ok">On</span></td><td><span class="pill p-ok">On</span></td><td class="small">Stealth mode off on both</td></tr>
+  <tr><td>System integrity protection</td><td><span class="pill p-ok">Enabled</span></td><td><span class="pill p-ok">Enabled</span></td><td class="small"></td></tr>
+  <tr><td>Remote management / screen sharing</td><td><span class="pill p-ok">Off</span></td><td><span class="pill p-ok">Off</span></td><td class="small">Reduced attack surface</td></tr>
+  <tr><td>Remote shell from collector</td><td><span class="pill p-ok">Refused</span></td><td><span class="pill p-gray">n/a</span></td><td class="small">Closed on LAN and private network</td></tr>
+  <tr><td>Disk health (SMART)</td><td><span class="pill p-ok">Verified</span></td><td><span class="pill p-ok">Verified</span></td><td class="small"></td></tr>
+  <tr><td>OS patch level</td><td><span class="pill p-warn">3 pending</span></td><td><span class="pill p-warn">1 pending</span></td><td class="small">Laptop 1 last patched about 3 months ago</td></tr>
+  <tr><td>Backup</td><td><span class="pill p-warn">None set</span></td><td><span class="pill p-warn">None set</span></td><td class="small">No backup destination configured</td></tr>
+</table>
+
+<div class="pb"></div>
+<h2>Network — Primary site</h2>
+<div class="grid2">
+  <div class="card ok">
+    <h3>Edge router <span class="pill p-ok">Online</span></h3>
+    <div class="role">SD-WAN router with satellite failover port</div>
+    <table class="kv">
+      <tr><td>Reachability</td><td>5/5 pings · avg 4.1 ms · 0% loss</td></tr>
+      <tr><td>WAN1 (fiber)</td><td>Connected <span class="stale">· from an earlier reading</span></td></tr>
+      <tr><td>WAN2 (satellite)</td><td><span class="dot d-warn"></span>No cable detected <span class="stale">· from an earlier reading</span></td></tr>
+      <tr><td>Monthly usage</td><td>158 GB (146 GB down / 12 GB up)</td></tr>
+    </table>
+  </div>
+  <div class="card ok">
+    <h3>Mesh Wi-Fi <span class="pill p-ok">Online</span></h3>
+    <div class="role">Wi-Fi mesh · router mode (parental controls) · behind edge router</div>
+    <table class="kv">
+      <tr><td>Reachability</td><td>3/3 pings · avg 5.3 ms · 0% loss</td></tr>
+      <tr><td>Configuration</td><td>Router mode kept; untouched by bots</td></tr>
+      <tr><td>Laptop 1 (LAN)</td><td>2/2 pings · avg 6.0 ms</td></tr>
+    </table>
+  </div>
+</div>
+<div class="card warn" style="margin-top:9px">
+  <h3>WAN1 outage history <span class="stale">from the router's event log, earlier reading</span></h3>
+  <table class="kv">
+    <tr><td>Drops in 3 weeks</td><td><b>12</b> brief WAN1 drops, all “WAN failed DNS test” · 2 during weekday business hours</td></tr>
+    <tr><td>Typical / longest</td><td>Most 10 s – 2 min · longest 11 min (overnight)</td></tr>
+    <tr><td>Bot’s read</td><td>Cause not attributed to the ISP: the router sits behind the mesh, so a drop could be fiber, mesh or DNS. Satellite failover was not cabled, so these drops had no backup path.</td></tr>
+  </table>
+</div>
+
+<h2>Access devices &amp; enrollment (private network)</h2>
+<div class="grid3">
+  <div class="card ok"><h3>Phone 1 <span class="pill p-ok">Online</span></h3><div class="role">Access only · not managed</div><div class="small">Private-network ping 43 ms</div></div>
+  <div class="card gray"><h3>Tablet 1 <span class="pill p-gray">Offline</span></h3><div class="role">Access only · not managed</div><div class="small">Last seen 3 days ago</div></div>
+  <div class="card gray"><h3>Phone 2 (retired) <span class="pill p-gray">Offline</span></h3><div class="role">Access only · not managed</div><div class="small">Last seen 8 weeks ago</div></div>
+  <div class="card warn"><h3>Laptop 2 <span class="pill p-warn">Pending</span></h3><div class="role">Pending enrollment · on private network</div><div class="small">Offline at scan · seen earlier today</div></div>
+  <div class="card gray"><h3>PC 1 <span class="pill p-gray">Not enrolled</span></h3><div class="role">Not on private network</div><div class="small">Enrollment deferred</div></div>
+  <div class="card ok"><h3>AI agent host <span class="pill p-ok">Online</span></h3><div class="role">Cloud Linux box running the bots</div><div class="small">Peer on the same private network</div></div>
+</div>
+
+<h2>Alerts &amp; recommended actions</h2>
+<div class="card" style="border-left-color:var(--brand)">
+<div class="actions">
+  <div class="item"><span class="tag t-now">ACT NOW</span><div><b>None.</b> Encryption, firewall and system integrity on both managed devices; both reachable; disks healthy with ample free space.</div></div>
+  <div class="item"><span class="tag t-watch">WATCH</span><div><b>Laptop 1 patching:</b> 3 pending OS updates and 11 pending app updates; last OS update about 3 months ago. <span class="small">Bots flag only; installs need owner approval.</span></div></div>
+  <div class="item"><span class="tag t-watch">WATCH</span><div><b>Desktop 1:</b> 1 pending OS update (restart required) · 20 outdated developer packages.</div></div>
+  <div class="item"><span class="tag t-watch">WATCH</span><div><b>No backup</b> configured on either managed device. Recommend a backup destination.</div></div>
+  <div class="item"><span class="tag t-watch">WATCH</span><div><b>Laptop 1 memory pressure:</b> 23 of 24 GB in use with swap after weeks of uptime. A restart (also needed for patches) would clear it.</div></div>
+  <div class="item"><span class="tag t-info">INFO</span><div><b>Satellite backup not cabled</b> on the router’s WAN2. Connecting it would give automatic failover for the WAN1 drops above.</div></div>
+  <div class="item"><span class="tag t-info">INFO</span><div>Laptop 2 pending enrollment · PC 1 unenrolled · tablet and retired phone offline (informational, not findings).</div></div>
+</div>
+</div>
+
+<footer>
+  <span>IT Report Dashboard · generated by the 30 North IT agent from live read-only telemetry · Tue Nov 17, 2026, 6:22 AM CT</span>
+  <span>Sample report; names, locations, identifiers and versions removed</span>
+</footer>
+</div></body></html>
