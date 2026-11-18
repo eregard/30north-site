@@ -128,3 +128,11 @@ p{overflow-wrap:break-word}
 .report-frame{display:block;width:100%;min-width:780px;height:1760px;border:0}
 @media(max-width:1000px){.itbot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.itbot-sample-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.itbot-hero,.report-hero{padding-block:36px 30px}.itbot-grid{grid-template-columns:1fr}.report-frame{height:1950px}}
+
+.not-found{padding-block:60px 120px}
+.not-found .sub{max-width:720px}
+.not-found-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:34px}
+.not-found-actions .text-link{margin-top:0;font-weight:600;color:var(--teal);text-decoration:none;font-size:16px}
+@media(max-width:760px){.not-found{padding-block:36px 60px}}
+.itbot-field h3{margin:32px 0 10px;font-size:21px}
+.itbot-field p+h3{margin-top:28px}
