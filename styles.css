@@ -142,3 +142,5 @@ p{overflow-wrap:break-word}
 .itbot-get>p:not(.eyebrow){max-width:720px;color:var(--body);margin-top:16px}
 .itbot-get .itbot-cta-row{margin-top:28px}
 @media(max-width:760px){.itbot-get{padding-block:40px 28px}.itbot-cta-row .btn{max-width:100%;text-align:center;text-wrap:balance}}
+
+.itbot-support{margin-top:18px}
